@@ -11,19 +11,26 @@ console.log(cubeManager.getAll())
 router.post('/create', (req, res) => {
     const {
         name,
-        difficaltyLevel,
+        difficultyLevel,
         imageUrl,
         description,
     } = req.body
 
     cubeManager.create ({
         name,
-        difficaltyLevel: Number(difficaltyLevel),
+        difficultyLevel: Number(difficultyLevel),
         imageUrl,
         description, 
     })
 
       res.redirect('/')
+})
+
+router.get('/:cubeId/details', (req,res)=> {
+    const cubeId = req.params.cubeId;
+    const cube = cubeManager.getAll().find(c=> c.id == cubeId);
+
+    res.render('details', { cube })
 })
 
 
