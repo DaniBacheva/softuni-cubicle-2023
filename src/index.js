@@ -1,21 +1,14 @@
 const express = require ("express");
-const hadlebars = require("express-handlebars");
-const path = require('path')
+
+const expressConfig = require('./config/expressConfig');
+const hadlebarsConfig = require('./config/handlebarsConfig');
 
 const app = express();
 
 const PORT = 5500;
 
-//express config
-app.use(express.static(path.resolve(__dirname,'public')));
-
-//handlebars.config
-app.engine('hbs', hadlebars.engine({
-    extname:'hbs'
-}));
-app.set('view engine', 'hbs');
-//set path to views
-app.set('views', 'src/views')
+expressConfig(app);
+hadlebarsConfig(app);
 
 //routes
 app.get('/', (req,res)=> {
