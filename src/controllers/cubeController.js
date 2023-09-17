@@ -30,6 +30,10 @@ router.get('/:cubeId/details', (req,res)=> {
     const cubeId = req.params.cubeId;
     const cube = cubeManager.getAll().find(c=> c.id == cubeId);
 
+    if (!cube) {
+        return res.redirect('/404')
+    }
+
     res.render('details', { cube })
 })
 
