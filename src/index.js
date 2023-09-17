@@ -1,9 +1,13 @@
 const express = require ("express");
 const hadlebars = require("express-handlebars");
+const path = require('path')
 
 const app = express();
 
 const PORT = 5500;
+
+//express config
+app.use(express.static(path.resolve(__dirname,'public')));
 
 //handlebars.config
 app.engine('hbs', hadlebars.engine({
