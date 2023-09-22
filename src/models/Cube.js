@@ -4,7 +4,9 @@ const cubeSchema = new mongoose.Schema({
     name: String,
     description: String,
     imageUrl: String,
-    difficaltyLevel: Number,
+    difficultyLevel: Number,
 })
 
 const Cube = mongoose.model('Cube', cubeSchema);
+
+module.exports = Cube;
