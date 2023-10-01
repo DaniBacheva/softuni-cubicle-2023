@@ -1,4 +1,3 @@
-const uniqid = require('uniqid');
 const Cube = require('../models/Cube');
 
 exports.getAll = async (search, from, to) => {
@@ -24,8 +23,8 @@ exports.getOne= (cubeID) => Cube.findById(cubeID);
 
 exports.create = async (cubeData) => {
 
-    const cube = new Cube(cubeData)
-    await cube.save()
+    const cube = new Cube(cubeData);
+    await cube.save();
 
     return cube;
 }

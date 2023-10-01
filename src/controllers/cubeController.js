@@ -16,15 +16,15 @@ router.post('/create', async (req, res) => {
         description,
     } = req.body
 
-   await  cubeManager.create ({
+  await  cubeManager.create ({
         name,
         difficultyLevel: Number(difficultyLevel),
         imageUrl,
         description, 
-    })
+    });
 
-      res.redirect('/')
-})
+      res.redirect('/');
+});
 
 router.get('/:cubeId/details', async (req,res)=> {
     

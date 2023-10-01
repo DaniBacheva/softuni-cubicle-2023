@@ -5,7 +5,7 @@ const cubeSchema = new mongoose.Schema({
     description: String,
     imageUrl: String,
     difficultyLevel: Number,
-})
+});
 
 const Cube = mongoose.model('Cube', cubeSchema);
 
