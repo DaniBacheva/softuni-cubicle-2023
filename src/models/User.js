@@ -1,4 +1,5 @@
 const mongoose = require ('mongoose');
+const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema ({
     username: String,
@@ -11,7 +12,12 @@ userSchema.virtual('repeatPassword')
         throw new mongoose.MongooseError('Password Mismatch');
     }
    });
-   
+
+   userSchema.pre('save', async function() {
+    const hash = await bcrypt.hash(this.password, 10);
+
+    this.password = hash;
+   })
 
 const User = mongoose.model('User', userSchema);
 
