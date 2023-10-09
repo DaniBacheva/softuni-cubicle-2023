@@ -3,6 +3,7 @@ const express = require('express');
 //npm install cookie-parser, jsonwebtoken
 const cookieParser = require ('cookie-parser');
 
+const { auth } = require('../middleware/authMiddleware')
 
 function expressConfig (app) {
 
@@ -10,6 +11,7 @@ function expressConfig (app) {
 app.use(express.static(path.resolve(__dirname,'../public')));
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
+app.use(auth);
 
 }
 
