@@ -1,5 +1,6 @@
 const mongoose = require ('mongoose');
 const Accessory = require('./Accessory');
+const User = require('./User')
 
 const cubeSchema = new mongoose.Schema({
     name: String,
@@ -9,7 +10,11 @@ const cubeSchema = new mongoose.Schema({
     accessories: [{
         type: mongoose.Types.ObjectId,
         ref: 'Accessory'
-    }]
+    }],
+    owner: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User',
+    }
 });
 
 const Cube = mongoose.model('Cube', cubeSchema);

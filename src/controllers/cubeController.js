@@ -22,6 +22,8 @@ router.post('/create', async (req, res) => {
         difficultyLevel: Number(difficultyLevel),
         imageUrl,
         description, 
+        owner: req.user._id,
+        
     });
 
       res.redirect('/');
