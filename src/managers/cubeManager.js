@@ -28,10 +28,14 @@ exports.create = (cubeData) => {
     return cube.save();
 
    };
+exports.delete = (cubeId)=> Cube.findByIdAndDelete(cubeId);
+
 
 exports.attachAccessory = async(cubeId, accessoryId) => {
     const cube = await Cube.findById(cubeId);
     cube.accessories.push(accessoryId);
 
-    return cube.save()
-}
+    return cube.save();
+};
+
+
