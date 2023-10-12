@@ -1,6 +1,5 @@
 const mongoose = require ('mongoose');
-const Accessory = require('./Accessory');
-const User = require('./User')
+
 
 const cubeSchema = new mongoose.Schema({
     name: String,

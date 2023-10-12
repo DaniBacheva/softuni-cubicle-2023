@@ -12,4 +12,4 @@ app.set('views', 'src/views')
 
 }
 
-module.exports = hadlebarsConfig
+module.exports = hadlebarsConfig;
